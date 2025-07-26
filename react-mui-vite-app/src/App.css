@@ -40,3 +40,9 @@
 .read-the-docs {
   color: #888;
 }
+
+.select-item important {
+  /* width: 80%; */
+  /* margin: -32px auto; */
+  padding: -32px;
+}

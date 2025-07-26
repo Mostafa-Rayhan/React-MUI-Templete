@@ -97,7 +97,7 @@ export default function Sidebar({ open, onClose }) {
     >
       <DrawerHeader />
       <Divider />
-      <List>
+      <List sx={{ pl: 2, pr: 2 }}>
         {menuItems.map((item) => (
           <React.Fragment key={item.text}>
             {item.subItems ? (
@@ -115,6 +115,7 @@ export default function Sidebar({ open, onClose }) {
                       <ListItemButton 
                         key={subItem.text} 
                         sx={{ pl: 4 }}
+                        className='rounded-3'
                         selected={window.location.pathname === subItem.path}
                       >
                         <ListItemIcon>
@@ -128,6 +129,7 @@ export default function Sidebar({ open, onClose }) {
               </>
             ) : (
               <ListItemButton
+                className='rounded-3'
                 selected={window.location.pathname === item.path}
               >
                 <ListItemIcon>
