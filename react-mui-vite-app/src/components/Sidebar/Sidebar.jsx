@@ -2,21 +2,15 @@ import React, { useState } from 'react';
 import { 
   Drawer, 
   List, 
-  ListItem, 
   ListItemButton, 
   ListItemIcon, 
   ListItemText, 
   Collapse,
   Divider,
-  Toolbar,
-  IconButton,
   useTheme,
   useMediaQuery
 } from '@mui/material';
 import {
-  ChevronLeft,
-  ChevronRight,
-  Menu,
   Dashboard,
   ShoppingCart,
   People,
@@ -38,7 +32,7 @@ const DrawerHeader = styled('div')(({ theme }) => ({
   justifyContent: 'flex-end',
 }));
 
-export default function Sidebar({ open, handleDrawerClose }) {
+export default function Sidebar({ open, onClose }) {
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
   const [openSubMenu, setOpenSubMenu] = useState(null);
@@ -99,13 +93,9 @@ export default function Sidebar({ open, handleDrawerClose }) {
       variant={isMobile ? 'temporary' : 'persistent'}
       anchor="left"
       open={open}
-      onClose={handleDrawerClose}
+      onClose={onClose}
     >
-      <DrawerHeader>
-        <IconButton onClick={handleDrawerClose}>
-          {theme.direction === 'ltr' ? <ChevronLeft /> : <ChevronRight />}
-        </IconButton>
-      </DrawerHeader>
+      <DrawerHeader />
       <Divider />
       <List>
         {menuItems.map((item) => (
